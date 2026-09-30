@@ -1,0 +1,64 @@
+//See https://aka.ms/new-console-template for more information
+
+
+//Console.WriteLine("Zadaj prve cislo");
+//string cislo1 = Console.ReadLine();
+//Console.WriteLine("Zadaj druhe cislo");
+//string cislo2 = Console.ReadLine();
+//int vysledok = int.Parse(cislo1) + int.Parse(cislo2);
+//Console.WriteLine("Sucet je: " + vysledok);
+
+//bool isAdult =true;
+//Console.WriteLine("Kolko mas rokov?");
+//string vstup = Console.ReadLine();
+//int vek = int.Parse(vstup);
+
+//if (vek <= 18)
+//{
+//    Console.WriteLine("Nie si dospely).");
+//}
+//else
+//{
+//    Console.WriteLine("Si dospely.");
+//}
+
+//Console.WriteLine("Zadaj heslo:");
+//string ok = Console.ReadLine();
+//int heslo = int.Parse(ok);
+
+//if (heslo == 1234)
+//{
+//    Console.WriteLine("Heslo je spravne");
+//}
+//else
+//{
+//    Console.WriteLine("Nespravne heslo");
+
+//using System.ComponentModel.Design;
+
+//bool senzor1 = true;  
+//bool senzor2 = true;
+//bool  senzor3 = true;
+//bool senzor4 = true;
+
+//Console.WriteLine("Aku chces nastavit senzitivitu? M/V");
+//string input = Console.ReadLine();
+
+//if (input == "mala")
+//{
+//    if (senzor1 && senzor2 && senzor3 && senzor4)
+//    {
+//        Console.WriteLine("Je vyhlaseny poplach");
+//    }
+
+//}
+//else
+//{
+//    if (senzor1 || senzor2 || senzor3 || senzor4)
+//    {
+//        Console.WriteLine("Nieje vyhlaseny poplach");
+//    }
+//}
+
+
+public static void Main(string[] args)

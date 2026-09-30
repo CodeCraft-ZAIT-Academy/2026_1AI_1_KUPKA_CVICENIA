@@ -1,1 +1,73 @@
 
+// See https://aka.ms/new-console-template for more information
+//namespace Cvicenia_02_Metody
+//{
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            SayHello();
+//        }
+
+//        public static void SayHello()
+//             Console.WriteLine("Ahoj svet!");
+//        }
+//    }
+
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        SayHello();
+//        Scitanie(8, 5, 9);
+//    }
+
+//    public static void SayHello()
+//    {
+//        Console.WriteLine("Ahoj svet!");
+
+
+
+//    }
+
+//    public static void Scitanie(int a, int b, int c)
+
+//    {
+//        int vysledok = a + b + c;
+//        Console.WriteLine("Vysledok scitania: " + vysledok);
+//    }internal class Program
+
+
+internal class Program
+{ 
+    static void Main(string[] args)
+    {
+        SayHello();
+        Scitanie(4, 5);
+        Odcitanie(10, 4);
+    }
+
+    public static void SayHello()
+    {
+        Console.WriteLine("Ahoj svet!");
+    }
+
+    public static void Scitanie(int a, int b)
+    {
+        int vysledok = a + b;
+        Console.WriteLine("Výsledok sčítania: " + vysledok);
+    }
+
+    public static void Odcitanie(int a, int b)
+    {
+        int vysledok = a - b;
+        Console.WriteLine("Výsledok odčítania: " + vysledok);
+    }
+}
+
+
+
+
+
+}

@@ -66,9 +66,9 @@ public static void Main(string[] args)
 
 
 
-using System.Security.Cryptography.X509Certificates;
 
-namespace _2026_1AI_1_POVCIK_CVICENIA
+
+
 {
     internal class Program
     {

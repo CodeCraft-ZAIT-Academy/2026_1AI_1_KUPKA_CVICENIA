@@ -66,27 +66,34 @@ public static void Main(string[] args)
 
 
 
-using System;
+using System.Security.Cryptography.X509Certificates;
 
-class Program
+namespace _2026_1AI_1_POVCIK_CVICENIA
 {
-    static void Main(string[] args)
+    internal class Program
     {
-        Random rnd = new Random();
-        int cislo = rnd.Next(1, 11);
-
-        Console.Write("Hadaj cislo od 1 do 10: ");
-        int tip = Convert.ToInt32(Console.ReadLine());
-
-        if (tip == cislo)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Uhadol si!");
-        }
-        else
-        {
-            Console.WriteLine("Netrafil si.");
-        }
 
-        Console.WriteLine("Hladane cislo bolo: " + cislo);
-    }
+
+            Console.WriteLine("Zadajte číslo");
+            int cislo = int.Parse(Console.ReadLine());
+
+
+            Random random = new Random();
+            int generatedNumber = random.Next(1, 11);
+            Console.WriteLine(generatedNumber);
+            if (cislo == generatedNumber)
+            {
+                Console.WriteLine("Gratulujem, uhádol si číslo!");
+            }
+            else
+            {
+                Console.WriteLine("Bohužiaľ, neuhádol si číslo. Skús to znova.");
+
+
+            }
+            }
+      }
 }
+

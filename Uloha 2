@@ -1,0 +1,36 @@
+using System;
+using System.Windows;
+
+namespace WpfApp_FirstApp
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int vysledok = int.Parse(FirstNumberTextBox.Text) + int.Parse(SecondNumberTextBox.Text);
+            MessageBox.Show("Výsledok je: " + vysledok);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int cislo2 = int.Parse(SecondNumberTextBox.Text);
+            if (cislo2 == 0)
+            {
+                MessageBox.Show("Nulou sa nedá deliť!");
+            }
+            else
+            {
+                double vysledok = (double)int.Parse(FirstNumberTextBox.Text) / cislo2;
+                MessageBox.Show("Výsledok je: " + vysledok);
+            }
+        }
+    }
+}

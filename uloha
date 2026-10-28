@@ -1,99 +1,102 @@
-//See https://aka.ms/new-console-template for more information
+using System;
+using System.Windows;
+using System.Windows.Threading;
 
-
-//Console.WriteLine("Zadaj prve cislo");
-//string cislo1 = Console.ReadLine();
-//Console.WriteLine("Zadaj druhe cislo");
-//string cislo2 = Console.ReadLine();
-//int vysledok = int.Parse(cislo1) + int.Parse(cislo2);
-//Console.WriteLine("Sucet je: " + vysledok);
-
-//bool isAdult =true;
-//Console.WriteLine("Kolko mas rokov?");
-//string vstup = Console.ReadLine();
-//int vek = int.Parse(vstup);
-
-//if (vek <= 18)
-//{
-//    Console.WriteLine("Nie si dospely).");
-//}
-//else
-//{
-//    Console.WriteLine("Si dospely.");
-//}
-
-//Console.WriteLine("Zadaj heslo:");
-//string ok = Console.ReadLine();
-//int heslo = int.Parse(ok);
-
-//if (heslo == 1234)
-//{
-//    Console.WriteLine("Heslo je spravne");
-//}
-//else
-//{
-//    Console.WriteLine("Nespravne heslo");
-
-//using System.ComponentModel.Design;
-
-//bool senzor1 = true;  
-//bool senzor2 = true;
-//bool  senzor3 = true;
-//bool senzor4 = true;
-
-//Console.WriteLine("Aku chces nastavit senzitivitu? M/V");
-//string input = Console.ReadLine();
-
-//if (input == "mala")
-//{
-//    if (senzor1 && senzor2 && senzor3 && senzor4)
-//    {
-//        Console.WriteLine("Je vyhlaseny poplach");
-//    }
-
-//}
-//else
-//{
-//    if (senzor1 || senzor2 || senzor3 || senzor4)
-//    {
-//        Console.WriteLine("Nieje vyhlaseny poplach");
-//    }
-//}
-
-
-public static void Main(string[] args)
-
-
-
-
-
-
-
+namespace CodeCraft_Cookie_Clicker
 {
-    internal class Program
+    public partial class MainWindow : Window
     {
-        static void Main(string[] args)
+        // Premenné na sledovanie stavu hry
+        private int cookieCount = 0;
+        private int clickPower = 1;
+        private int cookiesPerSecond = 0;
+
+        private DispatcherTimer autoClickTimer;
+
+        public MainWindow()
         {
+            InitializeComponent();
 
+            // Nastavenie časovača na každú 1 sekundu (pre automatickú výrobu z Továrne)
+            autoClickTimer = new DispatcherTimer();
+            autoClickTimer.Interval = TimeSpan.FromSeconds(1);
+            autoClickTimer.Tick += AutoClickTimer_Tick;
+            autoClickTimer.Start();
 
-            Console.WriteLine("Zadajte číslo");
-            int cislo = int.Parse(Console.ReadLine());
+            UpdateUI();
+        }
 
+        // 1. Kliknutie na hlavné tlačidlo (Cookie)
+        private void BtnCookie_Click(object sender, RoutedEventArgs e)
+        {
+            cookieCount += clickPower;
+            UpdateUI();
+        }
 
-            Random random = new Random();
-            int generatedNumber = random.Next(1, 11);
-            Console.WriteLine(generatedNumber);
-            if (cislo == generatedNumber)
+        // 2. Vylepšenie: Silnejší klik (+1 za klik, cena 10)
+        private void BtnSilnejsiKlik_Click(object sender, RoutedEventArgs e)
+        {
+            int cost = 10;
+            if (cookieCount >= cost)
             {
-                Console.WriteLine("Gratulujem, uhádol si číslo!");
+                cookieCount -= cost;
+                clickPower += 1;
+                UpdateUI();
             }
             else
             {
-                Console.WriteLine("Bohužiaľ, neuhádol si číslo. Skús to znova.");
-
-
+                MessageBox.Show("Nemáš dostatok cookies!", "Chyba", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        // 3. Vylepšenie: Super klik (+10 za klik, cena 100)
+        private void BtnSuperKlik_Click(object sender, RoutedEventArgs e)
+        {
+            int cost = 100;
+            if (cookieCount >= cost)
+            {
+                cookieCount -= cost;
+                clickPower += 10;
+                UpdateUI();
             }
-      }
+            else
+            {
+                MessageBox.Show("Nemáš dostatok cookies!", "Chyba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        // 4. Vylepšenie: Továreň (+100 za sekundu, cena 5000)
+        private void BtnTovaren_Click(object sender, RoutedEventArgs e)
+        {
+            int cost = 5000;
+            if (cookieCount >= cost)
+            {
+                cookieCount -= cost;
+                cookiesPerSecond += 100;
+                UpdateUI();
+            }
+            else
+            {
+                MessageBox.Show("Nemáš dostatok cookies!", "Chyba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        // Časovač prirátava každú sekundu pasívny príjem
+        private void AutoClickTimer_Tick(object sender, EventArgs e)
+        {
+            if (cookiesPerSecond > 0)
+            {
+                cookieCount += cookiesPerSecond;
+                UpdateUI();
+            }
+        }
+
+        // Aktualizácia textov v okne
+        private void UpdateUI()
+        {
+            txtCookies.Text = $"Cookies: {cookieCount}";
+            txtClickPower.Text = $"Sila kliku: +{clickPower}";
+            txtPerSecond.Text = $"Za sekundu: +{cookiesPerSecond}";
+        }
+    }
 }
-

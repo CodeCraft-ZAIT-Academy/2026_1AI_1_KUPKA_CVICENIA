@@ -1,2 +1,18 @@
+//Game game1  = new Game();
+//game1.GameName = "Left For Dead 2";
+//game1.IsAdult = true;
+//game1.PriceOfGame = 7;
 
+//Game game2 = new Game();
+//game2.GameName = "Halo 3";
+//game2.IsAdult = true;
+//game2.PriceOfGame = 19;
+
+
+//int sum = game1.PriceOfGame + game2.PriceOfGame;
+//Console.WriteLine(sum);
+
+    public string GameName { get; set; }
+    public bool IsAdult { get; set; }
+    public int PriceOfGame { get; set; }
 }
